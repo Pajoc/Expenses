@@ -9,6 +9,7 @@ namespace ExpensesBE.API.Models.Entities
 {
     public class Department
     {
+        [Key]
         public Guid Id { get; set; }
 
         [Required]
