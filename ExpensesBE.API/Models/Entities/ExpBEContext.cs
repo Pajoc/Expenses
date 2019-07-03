@@ -12,7 +12,7 @@ namespace ExpensesBE.API.Models.Entities
 
         public ExpBEContext(DbContextOptions<ExpBEContext> options): base(options)
         {
-
+            Database.Migrate();//Melhor que estar a fazer manualmente Update-Database
         }
 
         public DbSet<Department> Department { get; set; }

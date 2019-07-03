@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataServices\**" />
+    <Content Remove="DataServices\**" />
+    <EmbeddedResource Remove="DataServices\**" />
+    <None Remove="DataServices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
@@ -17,8 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataServices\Migrations\" />
-    <Folder Include="DataServices\Repositories\" />
     <Folder Include="Models\DTOs\" />
   </ItemGroup>
 

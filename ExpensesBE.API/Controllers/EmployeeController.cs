@@ -10,6 +10,13 @@ namespace ExpensesBE.API.Controllers
     [Route("api/employee")]
     public class EmployeeController : Controller
     {
+        private ExpBEContext _ctx;
+
+        public EmployeeController(ExpBEContext ctx)
+        {
+            _ctx = ctx;
+        }
+
         [HttpGet()]
         public JsonResult GetEmployees()
         {
@@ -23,5 +30,12 @@ namespace ExpensesBE.API.Controllers
                 new Employee { Code = "JCA", Name = "João Costa", Treshold = 150000, MainEmail = "joão.costa@beaudrey.pt", IsActive = false },
                 });
         }
+
+
+        //[HttpGet(Name = "GetFake")]
+        //public IActionResult GetFake()
+        //{
+        //    return Ok();
+        //}
     }
 }

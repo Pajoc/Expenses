@@ -23,7 +23,7 @@ namespace ExpensesBE.API
 
             // 1
             services.AddMvc();
-            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStr"];
+            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrDellLaptop"];
             services.AddDbContext<ExpBEContext>(o => o.UseSqlServer(ConnectionString));
         }
 
