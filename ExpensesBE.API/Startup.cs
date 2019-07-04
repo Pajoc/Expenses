@@ -1,9 +1,11 @@
 ﻿using ExpensesBE.API.Models.Entities;
+using ExpensesBE.API.Services.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 
 namespace ExpensesBE.API
 {
@@ -23,8 +25,11 @@ namespace ExpensesBE.API
 
             // 1
             services.AddMvc();
-            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrDellLaptop"];
+            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrJob"];
             services.AddDbContext<ExpBEContext>(o => o.UseSqlServer(ConnectionString));
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<,>));
+            services.AddScoped<IDepartmentRepository,DepartmentRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

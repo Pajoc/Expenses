@@ -4,14 +4,16 @@ using ExpensesBE.API.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ExpensesBE.API.Migrations
 {
     [DbContext(typeof(ExpBEContext))]
-    partial class ExpBEContextModelSnapshot : ModelSnapshot
+    [Migration("20190704104129_SeedEmployee2")]
+    partial class SeedEmployee2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
