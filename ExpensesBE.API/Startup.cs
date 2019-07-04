@@ -25,11 +25,12 @@ namespace ExpensesBE.API
 
             // 1
             services.AddMvc();
-            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrJob"];
+            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrDellLaptop"];
             services.AddDbContext<ExpBEContext>(o => o.UseSqlServer(ConnectionString));
             //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<,>));
-            services.AddScoped<IDepartmentRepository,DepartmentRepository>();
-
+            //services.AddScoped<IDepartmentRepository,DepartmentRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpensesBE.API.Services.Repositories
 {
-    interface IEmployeeRepository:IGenericRepository<Employee>
+    public interface IEmployeeRepository:IGenericRepository<Employee>
     {
 
     }

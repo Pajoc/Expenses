@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ExpensesBE.API.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ExpensesBE.API.Services.Repositories
 {
-    public class GenericRepository<TEntity, TContext> : IGenericRepository<TEntity>
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class
-        where TContext : DbContext
+       
     {
-        protected readonly TContext _ctx;
+        protected readonly ExpBEContext _ctx;
 
-        public GenericRepository(TContext ctx)
+        public GenericRepository(ExpBEContext ctx)
         {
             _ctx = ctx;
         }

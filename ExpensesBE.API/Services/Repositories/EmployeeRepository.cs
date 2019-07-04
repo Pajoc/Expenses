@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpensesBE.API.Services.Repositories
 {
-    public class EmployeeRepository :GenericRepository<Employee,ExpBEContext>,  IEmployeeRepository
+    public class EmployeeRepository :GenericRepository<Employee>,  IEmployeeRepository
     {
         public EmployeeRepository(ExpBEContext context):base (context)
         {
@@ -19,6 +19,7 @@ namespace ExpensesBE.API.Services.Repositories
         public override async Task<IEnumerable<Employee>> GetAllAsync()
         {
             return await _ctx.Employees.Include(d => d.DepartmentOfEmployee).ToListAsync();
+            
         }
     }
 }

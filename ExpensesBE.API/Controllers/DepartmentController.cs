@@ -11,12 +11,25 @@ namespace ExpensesBE.API.Controllers
     [Route("api/department")]
     public class DepartmentController : Controller
     {
-        private IDepartmentRepository _departmentRepo;
-        public DepartmentController(IDepartmentRepository departmentRepo)
+        //private IDepartmentRepository _departmentRepo;
+        //public DepartmentController(IDepartmentRepository departmentRepo)
+        //{
+        //    _departmentRepo = departmentRepo;
+        //}
+
+        //[HttpGet()]
+        //public async Task<JsonResult> GetDepartmentAsync()
+        //{
+        //    var response = await _departmentRepo.GetAllAsync();
+        //    return new JsonResult(response);
+        //}
+
+        private IGenericRepository<Department> _departmentRepo;
+        public DepartmentController(IGenericRepository<Department> departmentRepo)
         {
             _departmentRepo = departmentRepo;
         }
-
+        
         [HttpGet()]
         public async Task<JsonResult> GetDepartmentAsync()
         {
