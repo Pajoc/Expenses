@@ -25,7 +25,28 @@ namespace ExpensesBE.API.Controllers
             var emp =  await _employeeRepo.GetAllAsync();
             return new JsonResult(emp);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEmployeeAsync(Guid id)
+        {
 
+            if (!await _employeeRepo.ItemExist(id))
+            {
+                return NotFound();
+            }
+
+            var item = await _employeeRepo.FindById(id);
+
+            _employeeRepo.RemoveItem(item);
+
+            if (!_employeeRepo.Save())
+            {
+                throw new Exception($"Removing a employee {id} failed.");
+            }
+
+            
+            return NoContent();
+
+        }
 
     }
 }

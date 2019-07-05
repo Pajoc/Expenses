@@ -8,6 +8,6 @@ namespace ExpensesBE.API.Services.Repositories
 {
     public interface IEmployeeRepository:IGenericRepository<Employee>
     {
-
+        //Task<bool> ItemExist(Guid id);
     }
 }

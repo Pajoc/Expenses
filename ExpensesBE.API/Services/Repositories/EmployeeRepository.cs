@@ -15,11 +15,14 @@ namespace ExpensesBE.API.Services.Repositories
             
         }
 
-
         public override async Task<IEnumerable<Employee>> GetAllAsync()
         {
             return await _ctx.Employees.Include(d => d.DepartmentOfEmployee).ToListAsync();
-            
+        }
+
+        public override async Task<bool> ItemExist(Guid id)
+        {
+            return await _ctx.Employees.AnyAsync(e => e.Id == id);
         }
     }
 }

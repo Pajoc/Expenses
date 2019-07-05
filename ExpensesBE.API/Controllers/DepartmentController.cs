@@ -36,5 +36,8 @@ namespace ExpensesBE.API.Controllers
             var response = await _departmentRepo.GetAllAsync();
             return new JsonResult(response);
         }
+
+
+        
     }
 }
