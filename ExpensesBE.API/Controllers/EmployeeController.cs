@@ -19,10 +19,10 @@ namespace ExpensesBE.API.Controllers
             _employeeRepo = employeeRepo;
         }
 
-        [HttpGet()]
-        public async Task<JsonResult> GetEmployeesAsync()
+        [HttpGet("{pmts}")]
+        public async Task<JsonResult> GetEmployeesAsync(string pmts)
         {
-            var emp =  await _employeeRepo.GetAllAsync();
+            var emp =  await _employeeRepo.GetAllAsync(pmts);
             return new JsonResult(emp);
         }
         [HttpDelete("{id}")]

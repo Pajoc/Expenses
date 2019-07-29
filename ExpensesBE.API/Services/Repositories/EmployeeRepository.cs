@@ -15,7 +15,7 @@ namespace ExpensesBE.API.Services.Repositories
             
         }
 
-        public override async Task<IEnumerable<Employee>> GetAllAsync()
+        public override async Task<IEnumerable<Employee>> GetAllAsync(string pmts)
         {
             return await _ctx.Employees.Include(d => d.DepartmentOfEmployee).ToListAsync();
         }

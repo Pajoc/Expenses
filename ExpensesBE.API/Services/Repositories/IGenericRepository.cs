@@ -6,7 +6,7 @@ namespace ExpensesBE.API.Services.Repositories
 {
     public interface IGenericRepository<T>
     {
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync(string parms);
 
         Task<T> FindById(Guid id);
 

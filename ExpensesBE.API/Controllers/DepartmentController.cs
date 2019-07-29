@@ -30,10 +30,10 @@ namespace ExpensesBE.API.Controllers
             _departmentRepo = departmentRepo;
         }
         
-        [HttpGet()]
-        public async Task<JsonResult> GetDepartmentAsync()
+        [HttpGet("{pmts}")]
+        public async Task<JsonResult> GetDepartmentAsync(string pmts)
         {
-            var response = await _departmentRepo.GetAllAsync();
+            var response = await _departmentRepo.GetAllAsync(pmts);
             return new JsonResult(response);
         }
 

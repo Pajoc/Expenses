@@ -24,7 +24,7 @@ namespace ExpensesBE.API.Services.Repositories
             return await _ctx.Set<TEntity>().FindAsync(id);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(string pmts)
         {
             return await _ctx.Set<TEntity>().ToListAsync();
         }
