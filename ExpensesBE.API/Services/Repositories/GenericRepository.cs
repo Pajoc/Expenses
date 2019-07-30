@@ -1,4 +1,5 @@
-﻿using ExpensesBE.API.Models.Entities;
+﻿using ExpensesBE.API.Helpers;
+using ExpensesBE.API.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace ExpensesBE.API.Services.Repositories
             return await _ctx.Set<TEntity>().FindAsync(id);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(string pmts)
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(ResourceParameters pmts)
         {
             return await _ctx.Set<TEntity>().ToListAsync();
         }

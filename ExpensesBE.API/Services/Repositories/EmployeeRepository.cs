@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExpensesBE.API.Helpers;
 using ExpensesBE.API.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,7 @@ namespace ExpensesBE.API.Services.Repositories
             
         }
 
-        public override async Task<IEnumerable<Employee>> GetAllAsync(string pmts)
+        public override async Task<IEnumerable<Employee>> GetAllAsync(ResourceParameters pmts)
         {
             return await _ctx.Employees.Include(d => d.DepartmentOfEmployee).ToListAsync();
         }

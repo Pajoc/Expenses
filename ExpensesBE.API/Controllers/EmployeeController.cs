@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExpensesBE.API.Helpers;
 using ExpensesBE.API.Models.Entities;
 using ExpensesBE.API.Services.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -19,10 +20,10 @@ namespace ExpensesBE.API.Controllers
             _employeeRepo = employeeRepo;
         }
 
-        [HttpGet("{pmts}")]
-        public async Task<JsonResult> GetEmployeesAsync(string pmts)
+        [HttpGet("{GetEmployees}")]
+        public async Task<JsonResult> GetEmployeesAsync(ResourceParameters empResourceParameters)
         {
-            var emp =  await _employeeRepo.GetAllAsync(pmts);
+            var emp =  await _employeeRepo.GetAllAsync(empResourceParameters);
             return new JsonResult(emp);
         }
         [HttpDelete("{id}")]
