@@ -31,7 +31,7 @@ namespace ExpensesBE.API.Controllers
             _departmentRepo = departmentRepo;
         }
         
-        [HttpGet("{GetDepartments}")]
+        [HttpGet("{GetAll}")]
         public async Task<JsonResult> GetDepartmentsAsync(ResourceParameters pmts)
         {
             var response = await _departmentRepo.GetAllAsync(pmts);

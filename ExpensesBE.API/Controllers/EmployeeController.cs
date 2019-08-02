@@ -20,7 +20,7 @@ namespace ExpensesBE.API.Controllers
             _employeeRepo = employeeRepo;
         }
 
-        [HttpGet("{GetEmployees}")]
+        [HttpGet("{GetAll}")]
         public async Task<JsonResult> GetEmployeesAsync(ResourceParameters empResourceParameters)
         {
             var emp =  await _employeeRepo.GetAllAsync(empResourceParameters);
