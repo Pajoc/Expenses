@@ -25,7 +25,7 @@ namespace ExpensesBE.API
 
             // 1
             services.AddMvc();
-            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrJob"];
+            var ConnectionString = Startup.Configuration["connectionStrings:MyconnStrHome"];
             services.AddDbContext<ExpBEContext>(o => o.UseSqlServer(ConnectionString));
             //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<,>));
             //services.AddScoped<IDepartmentRepository,DepartmentRepository>();

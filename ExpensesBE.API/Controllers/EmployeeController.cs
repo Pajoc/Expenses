@@ -43,11 +43,31 @@ namespace ExpensesBE.API.Controllers
             {
                 throw new Exception($"Removing a employee {id} failed.");
             }
-
             
             return NoContent();
-
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateEmployee(Guid id, [FromBody] Employee emp)
+        {
+            if (emp == null )
+            {
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _employeeRepo.UpdateAsync(emp);
+
+            if (!_employeeRepo.Save())
+            {
+                throw new Exception($"Removing a employee {id} failed.");
+            }
+
+            return NoContent();
+        }
     }
 }

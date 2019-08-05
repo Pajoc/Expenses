@@ -18,9 +18,29 @@ namespace ExpensesBE.API.Services.Repositories
 
         public override async Task<IEnumerable<Employee>> GetAllAsync(ResourceParameters pmts)
         {
-            return await _ctx.Employees.Include(d => d.DepartmentOfEmployee).ToListAsync();
+           IQueryable<Employee> res = _ctx.Employees.Include(d => d.DepartmentOfEmployee);
+            if (pmts != null && pmts.Code != null)
+            {
+                res = res.Where(p => p.Code == pmts.Code);
+            }
+            if (pmts != null && pmts.Name != null)
+            {
+                res = res.Where(p => p.Name.Contains(pmts.Name));
+            }
+                       
+             return await res.ToListAsync();
         }
 
+        public override async Task UpdateAsync(Employee emp)
+        {
+            var empToUpdt = await _ctx.Employees.FindAsync(emp.Id);
+            empToUpdt.Code = emp.Code;
+            empToUpdt.Name = emp.Name;
+            empToUpdt.Treshold = emp.Treshold;
+            empToUpdt.MainEmail = emp.MainEmail;
+            empToUpdt.DepartmentId = emp.DepartmentId;
+
+        }
         public override async Task<bool> ItemExist(Guid id)
         {
             return await _ctx.Employees.AnyAsync(e => e.Id == id);

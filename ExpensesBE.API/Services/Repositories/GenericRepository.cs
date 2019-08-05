@@ -45,6 +45,11 @@ namespace ExpensesBE.API.Services.Repositories
             return _ctx.SaveChanges() >= 0;
         }
 
+        public virtual Task UpdateAsync (TEntity item)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
 

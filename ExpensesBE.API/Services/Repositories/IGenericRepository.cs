@@ -15,6 +15,8 @@ namespace ExpensesBE.API.Services.Repositories
 
         void RemoveItem(T item);
 
+        Task UpdateAsync(T item);
+
         bool Save();
     }
 }
