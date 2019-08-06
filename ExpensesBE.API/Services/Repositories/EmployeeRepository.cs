@@ -41,6 +41,13 @@ namespace ExpensesBE.API.Services.Repositories
             empToUpdt.DepartmentId = emp.DepartmentId;
 
         }
+
+        public override async Task<Guid> InsertAsync(Employee emp)
+        {
+            emp.Id = Guid.NewGuid();
+            await _ctx.Employees.AddAsync(emp);
+            return emp.Id;
+        }
         public override async Task<bool> ItemExist(Guid id)
         {
             return await _ctx.Employees.AnyAsync(e => e.Id == id);

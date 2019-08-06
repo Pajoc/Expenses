@@ -49,7 +49,10 @@ namespace ExpensesBE.API.Services.Repositories
         {
             throw new NotImplementedException();
         }
-
+        public virtual Task<Guid> InsertAsync(TEntity item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -17,6 +17,8 @@ namespace ExpensesBE.API.Services.Repositories
 
         Task UpdateAsync(T item);
 
+        Task<Guid> InsertAsync(T item);
+
         bool Save();
     }
 }

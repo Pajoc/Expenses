@@ -69,5 +69,28 @@ namespace ExpensesBE.API.Controllers
 
             return NoContent();
         }
+
+        [HttpPost()]
+        public async Task<IActionResult> InsertEmployee([FromBody] Employee emp)
+        {
+            if (emp == null)
+            {
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var id = await _employeeRepo.InsertAsync(emp);
+
+            if (!_employeeRepo.Save())
+            {
+                throw new Exception($"Removing a employee {id} failed.");
+            }
+
+            return NoContent();
+        }
     }
 }
